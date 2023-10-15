@@ -1,0 +1,175 @@
+
+.bx{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: var(--bx-size);
+    height: var(--bx-h);
+    border: var(--bx-bodr);
+    border-radius: var(--bx-bodr-r) !important;
+    box-shadow: var(--bx-box-shdw-1);
+    overflow: hidden;
+    color: var(--df-c);
+    transition: transform 0.2s;
+    resize: both;
+    min-width: 250px;
+    min-height: var(--bx-hdr-h);
+    max-width: 100%;
+    max-height: 100%;
+    > .bx-bar{
+        position: absolute;z-index: 1;
+        top: 0;left: 0;
+        width: 100%;height: var(--bx-hdr-h);
+        /* cursor: crosshair; */
+    }
+    > .bx-ctrl{
+        position: absolute;
+        z-index: 2;
+        top: calc(var(--bx-hdr-h)/2); transform: translateY(-50%);
+        left: 10px;
+        min-width: var(--bx-ctrl-width);
+
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-items: center;
+
+        > .tool{
+            /* box-shadow: inset 0px 0px 1px #00000044; */
+            width: var(--bx-tool-size);
+            height: var(--bx-tool-size);  
+            border-radius: var(--bx-tool-bodr-r);
+            &:hover{
+                transform: scale(1.08);
+            }
+        }
+        .bx-x{background-color: #ff5f57;}
+        .bx-m{background-color: #febc2e;}
+        .bx-f{background-color: #27c840;}
+    }
+    > .bx-door{
+        position: absolute; z-index: 2;
+        top: calc(var(--bx-hdr-h)/2); transform: translateY(-50%); right: 12px;
+        width: var(--bx-tool-size); height: var(--bx-hdr-h);
+        display: flex;
+        justify-content: right;
+        align-items: center;
+        &:hover{cursor: pointer;}
+        > i{
+            color: var(--bx-hdr-c);
+        }
+    }
+    > .bx-set{
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        /* width: var(--bx-set-width); */
+        width: 100%;
+        height: 100%;
+        padding: calc(var(--bx-hdr-h) + (var(--bx-hdr-h)/1.5)) var(--bx-hdr-h) 20px;
+        
+        background-color: var(--bx-set-bgc);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(4px);
+        /* opacity: 0; */
+        transition: opacity .5s ease-in-out;
+        border-right: var(--bx-set-bodr);
+        > .bx-set-main{
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            overflow-y: scroll;
+            &::-webkit-scrollbar{width: 0;}
+            >div{
+                margin-bottom: 5px;
+                & .title{
+                    color: var(--bx-set-c);
+                    font-size: .95em;
+                    text-shadow: var(--bx-t-shdw);
+                }
+            }
+            & .bx-set-apps{
+                display: flex;
+                flex-direction: column;
+            }
+        }
+    }
+    .bx-set-door:checked ~ .bx-set{
+        opacity: 1;
+    }
+    .bx-set-door:checked ~ .bx-view{
+        margin-left: clamp(200px, 40%, 350px) ;        
+    }
+
+    > .bx-view{
+        position: relative;
+        height: 100%;
+        margin-left: 0;
+        transition: margin .5s ease-in-out;
+        overflow: hidden;
+        > .bx-hdr{
+            position: relative;
+
+            height: var(--bx-hdr-h);
+            width: 100%;
+            padding: 10px;
+            
+            display: flex;justify-content: center;align-items: center;
+            
+            background-color: var(--bx-hdr-bgc);
+            color: var(--bx-hdr-c);
+            .c{
+                margin: auto;
+                text-align: center;
+                font-weight: bold;
+                font-size: .9em;
+            }
+        }
+        .bx-main{
+            display: block;
+            height: calc(100% - var(--bx-hdr-h));
+            background-color: var(--bx-apps-bgc);
+            overflow-x: hidden;
+            overflow-y: scroll;
+            &::-webkit-scrollbar{width: 0;}
+            .bx-txt,.app-link,.app-task{
+                width: 100%;
+                display: flex;
+                justify-content: center;
+            }
+           & textarea{
+                /* width: calc(100% - 12px); */
+                width: 100%;
+                height: 100%;
+                text-align: left;
+                padding: 15px 20px 10px 20px;
+                border-radius: 15px;
+                outline: none;
+                background-color: inherit;
+                font-size: .9rem;
+                resize: both;
+                color: var(--df-c);
+                border: 0;
+            }
+            
+        }
+    }
+    .bx-title-input{
+        width: 100%;
+        font-weight: bold;
+        text-align: center;
+        font-weight: bold;
+        font-size: .9em;
+    }
+}
+/* 박스 세팅 토글 */
+
+
+
+/* 박스 안의 앱들 */
+.bx-apps{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}

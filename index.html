@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="icon" href="./favi.png">
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Nanum+Gothic&family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Mac Note</title>
+</head>
+<body class="preload">
+<!-- 상단 툴바 ---------------------- -->
+<div class="tb">
+    <div class="l">
+        <div><div class="top-time"></div></div>
+    </div>
+    <div class="c">
+        <div class="btn-new-bx" onclick="newBox()">
+            <!-- <i>+</i> -->
+            <span>+</span>
+            <!-- <i class="fa-solid fa-plus add-bx-icon">+</i> -->
+        </div>
+    </div>
+    <div class="r">
+        <label for="ww-door">widget</label> 
+        <label for="rw-door">set</label>
+    </div>
+</div>
+<!-- 좌우 히든 윈도우 ---------------------- -->
+<input type="checkbox" id="lw-door" class="dpnone">
+<input type="checkbox" id="rw-door" class="dpnone">
+<input type="checkbox" id="ww-door" class="dpnone">
+
+<label class="lw-back" for="lw-door"></label>
+<label class="rw-back" for="rw-door"></label>
+<label class="ww-back" for="ww-door"></label>
+<label class="lw" for="lw-door">
+    <div class="l">
+        <div class="stacks"> 
+            <div class="stack"></div>
+            <div class="stack"></div>
+            <div class="stack"></div>
+            <div class="stack"></div>
+            <div class="stack"></div>
+        </div>
+    </div>
+    <!-- <i class="fas fa-angle-right"></i><i class="fas fa-angle-right"></i> -->
+</label>
+<label class="btn lw-handle" for="lw-door">❁</label>
+<label class="rw" for="rw-door"></label>
+<label class="ww" for="ww-door">
+    <div class="contanier">
+        <form action="https://www.google.com/search" method="GET" target="blank" class="searchbar search-google">
+            <label for="google-toggle" class="search-icon">
+                <i class="fa-brands fa-google search-site-icon"></i>
+            </label>
+            <input type="text" id="google-input" name="q" placeholder="Google 검색">
+            <button class="search-icon search-submit google-submit">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+        </form>
+    </div>
+</label>
+<!-- 메인 앱 화면 ---------------------- -->
+<main id="main">
+    <div class="ws"></div>
+    <div class="bs" onclick="bsClick()"></div>
+</main>
+<!-- <footer></footer> -->
+
+<!-- 스크립트 ---------------------- -->
+
+<script>
+    // 초기 로드 트렌지션 해제
+    const body = () => {document.body.removeClass('preload')}
+    //
+    
+</script>
+<script src="toolbar.js"></script>
+<script src="box-ctrl.js"></script>
+<script src="app.js"></script>
+<script src="box.js"></script>
+
+<script src="https://kit.fontawesome.com/e4704dcbbd.js" crossorigin="anonymous"></script>
+</body>
+</html>
