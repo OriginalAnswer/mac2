@@ -193,7 +193,8 @@ rotateZ90deg) -> rotateZ(180deg) *lw-door
         height: var(--search-height);
         padding: 0 10px;
         font-size: 1rem;
-        color: var(--color-font);
+        /* color: var(--color-font); */
+        color: #00ff08;
     }
     & .search-icon{
         display: flex;
